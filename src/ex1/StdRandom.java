@@ -1,3 +1,4 @@
+package ex1;
 /******************************************************************************
  *  Compilation:  javac StdRandom.java
  *  Execution:    java StdRandom

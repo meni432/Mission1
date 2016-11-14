@@ -1,9 +1,8 @@
 package ex1;
-
-/**
- * ****************************************************************************
- * Compilation: javac In.java Execution: java In (basic test --- see source for
- * required files) Dependencies: none
+/******************************************************************************
+ *  Compilation:  javac In.java
+ *  Execution:    java In   (basic test --- see source for required files)
+ *  Dependencies: none
  *
  * Reads in data of various types from standard input, files, and URLs.
  *
