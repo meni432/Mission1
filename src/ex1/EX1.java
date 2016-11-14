@@ -22,4 +22,24 @@ public class EX1 {
     	//sapir commit
     }
     
+    public static double min(double[] A){
+        double min = A[0];
+        for (int i = 1; i < A.length; i++){
+            if (A[i] < min){
+                min = A[i];
+            }
+        }
+        return min;
+    }
+    
+    public static double max(double[] A){
+        double max = A[0];
+        for (int i = 1; i< A.length; i++){
+            if (A[i] > max){
+                max = A[i];
+            }
+        }
+        return max;
+    }
+    
 }
