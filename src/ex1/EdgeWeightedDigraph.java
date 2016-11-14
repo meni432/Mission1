@@ -103,6 +103,7 @@ public class EdgeWeightedDigraph {
             if (w < 0 || w >= V) throw new IndexOutOfBoundsException("vertex " + w + " is not between 0 and " + (V-1));
             double weight = in.readDouble();
             addEdge(new DirectedEdge(v, w, weight));
+            addEdge(new DirectedEdge(w, v, weight));
         }
     }
     

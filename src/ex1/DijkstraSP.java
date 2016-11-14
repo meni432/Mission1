@@ -94,7 +94,7 @@ public class DijkstraSP {
         while (!pq.isEmpty()) {
             int v = pq.delMin();
             for (DirectedEdge e : G.adj(v)) {
-                if(!BlackList.contains(e.to()))
+                if(!BlackList.contains(e.from()))
                     relax(e);
             }
         }
