@@ -66,11 +66,6 @@ public class DijkstraSP {
      * @throws IllegalArgumentException unless {@code 0 <= s < V}
      */
     public DijkstraSP(EdgeWeightedDigraph G, int s) {
-        for (DirectedEdge e : G.edges()) {
-            if (e.weight() < 0)
-                throw new IllegalArgumentException("edge " + e + " has negative weight");
-        }
-
         distTo = new double[G.V()];
         edgeTo = new DirectedEdge[G.V()];
         for (int v = 0; v < G.V(); v++)
