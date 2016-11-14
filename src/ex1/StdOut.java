@@ -1,3 +1,5 @@
+package ex1;
+
 /******************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut
