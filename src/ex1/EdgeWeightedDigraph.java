@@ -44,8 +44,6 @@ public class EdgeWeightedDigraph {
     private Bag<DirectedEdge>[] adj;    // adj[v] = adjacency list for vertex v
     private int[] indegree;             // indegree[v] = indegree of vertex v
 
-    private HashSet<DirectedEdge> des = new HashSet<>();
-
     /**
      * Initializes an empty edge-weighted digraph with {@code V} vertices and 0
      * edges.
@@ -115,16 +113,8 @@ public class EdgeWeightedDigraph {
                 throw new IndexOutOfBoundsException("vertex " + w + " is not between 0 and " + (V - 1));
             }
             double weight = in.readDouble();
-            DirectedEdge deVW = new DirectedEdge(v, w, weight);
-            if (!des.contains(deVW)) {
-                des.add(deVW);
-                addEdge(new DirectedEdge(v, w, weight));
-            }
-            DirectedEdge deWV = new DirectedEdge(v, w, weight);
-            if (!des.contains(deWV)) {
-                des.add(deVW);
-                addEdge(new DirectedEdge(w, v, weight));
-            }
+            addEdge(new DirectedEdge(v, w, weight));
+            addEdge(new DirectedEdge(w, v, weight));
         }
     }
 
