@@ -1,7 +1,10 @@
 package ex1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import javafx.print.Collation;
 
 /**
  * ****************************************************************************
@@ -51,6 +54,8 @@ public class DijkstraSP {
     private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
     private IndexMinPQ<Double> pq;    // priority queue of vertices
     private List<Integer> BlackList;  // BlackList[v]= Black list of vertex.   
+    
+    private int eccentricity;
 
     /**
      * Computes a shortest-paths tree from the source vertex {@code s} to every
@@ -128,6 +133,10 @@ public class DijkstraSP {
      */
     public double distTo(int v) {
         return distTo[v];
+    }
+    
+    public double getEccentricity(){
+        return EX1.max(distTo);
     }
 
     /**
