@@ -195,7 +195,7 @@ public class DijkstraSP {
         In in = new In(args[0]);
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
         int s = Integer.parseInt(args[1]);
-
+        
         // compute shortest paths
         DijkstraSP sp = new DijkstraSP(G, s);
 

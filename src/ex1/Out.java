@@ -1,3 +1,5 @@
+package ex1;
+
 /******************************************************************************
  *  Compilation:  javac Out.java
  *  Execution:    java Out

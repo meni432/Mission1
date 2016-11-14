@@ -92,6 +92,7 @@ public class EdgeWeightedDigraph {
      * @throws IllegalArgumentException if the number of vertices or edges is negative
      */
     public EdgeWeightedDigraph(In in) {
+        // TODO need to chenage it to read blacklist
         this(in.readInt());
         int E = in.readInt();
         if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
