@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,6 +18,11 @@ import java.util.ArrayList;
 public class Graph {
     public static final String INFO_QUERY = "info";
     
+    /**
+     * 
+     * @param pathToFile
+     * @return 
+     */
     public static EdgeWeightedDigraph buildGraphFromFile(String pathToFile) {
         File file = new File(pathToFile);
         In in = new In(file);
@@ -48,20 +54,34 @@ public class Graph {
                     blackList.add(queryIn.readInt());
                 }
                 
-                DijkstraSP dijkstraSP = new DijkstraSP(G, from);
-                ansOut.printf("%d %d %d %lf\n", from, to, numberOfBlackList, dijkstraSP.distTo(to));
-            } else if (queryIn.readLine().equals(INFO_QUERY)){
-                // TODO write to file info
+                DijkstraSP dijkstraSP = new DijkstraSP(G, from, blackList);
+                ansOut.printf("%d %d %d %s %f\n", from, to, numberOfBlackList, buildBlackListArgsString(blackList), dijkstraSP.distTo(to));
+            } else if (queryIn.readString().equalsIgnoreCase(INFO_QUERY)){
+                ansOut.printf("info print");
             }
         }
-        
+    }
+    
+    
+    private static String buildBlackListArgsString(List<Integer> blackList){
+        StringBuilder builder = new StringBuilder();
+        for (int vertex: blackList){
+            builder.append(vertex).append(" ");
+        }
+        return builder.toString();
     }
 
     public static void main(String[] args) {
-        String pathToGraphFile;
-        String pathToQueryFile;
-        String pathToAnsFile;
+        String pathToGraphFile = "G0.txt";
+        String pathToQueryFile = "test1.txt";
+        String pathToAnsFile = "ans.txt";
         
+        
+        try {
+            runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
         
     }
 }
