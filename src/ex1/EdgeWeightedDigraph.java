@@ -91,41 +91,41 @@ public class EdgeWeightedDigraph {
      * @throws IndexOutOfBoundsException if the endpoints of any edge are not in prescribed range
      * @throws IllegalArgumentException if the number of vertices or edges is negative
      */
-//    public EdgeWeightedDigraph(In in) {
-//        this(in.readInt());
-//        int E = in.readInt();
-//        if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
-//        for (int i = 0; i < E; i++) {
-//            int v = in.readInt();
-//            int w = in.readInt();
-//            if (v < 0 || v >= V) throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V-1));
-//            if (w < 0 || w >= V) throw new IndexOutOfBoundsException("vertex " + w + " is not between 0 and " + (V-1));
-//            double weight = in.readDouble();
-//            addEdge(new DirectedEdge(v, w, weight));
-//        }
-//    }
+    public EdgeWeightedDigraph(In in) {
+        this(in.readInt());
+        int E = in.readInt();
+        if (E < 0) throw new IllegalArgumentException("Number of edges must be nonnegative");
+        for (int i = 0; i < E; i++) {
+            int v = in.readInt();
+            int w = in.readInt();
+            if (v < 0 || v >= V) throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V-1));
+            if (w < 0 || w >= V) throw new IndexOutOfBoundsException("vertex " + w + " is not between 0 and " + (V-1));
+            double weight = in.readDouble();
+            addEdge(new DirectedEdge(v, w, weight));
+        }
+    }
 
     /**
      * Initializes a new edge-weighted digraph that is a deep copy of {@code G}.
      *
      * @param  G the edge-weighted digraph to copy
      */
-    public EdgeWeightedDigraph(EdgeWeightedDigraph G) {
-        this(G.V());
-        this.E = G.E();
-        for (int v = 0; v < G.V(); v++)
-            this.indegree[v] = G.indegree(v);
-        for (int v = 0; v < G.V(); v++) {
-            // reverse so that adjacency list is in same order as original
-            Stack<DirectedEdge> reverse = new Stack<DirectedEdge>();
-            for (DirectedEdge e : G.adj[v]) {
-                reverse.push(e);
-            }
-            for (DirectedEdge e : reverse) {
-                adj[v].add(e);
-            }
-        }
-    }
+//    public EdgeWeightedDigraph(EdgeWeightedDigraph G) {
+//        this(G.V());
+//        this.E = G.E();
+//        for (int v = 0; v < G.V(); v++)
+//            this.indegree[v] = G.indegree(v);
+//        for (int v = 0; v < G.V(); v++) {
+//            // reverse so that adjacency list is in same order as original
+//            Stack<DirectedEdge> reverse = new Stack<DirectedEdge>();
+//            for (DirectedEdge e : G.adj[v]) {
+//                reverse.push(e);
+//            }
+//            for (DirectedEdge e : reverse) {
+//                adj[v].add(e);
+//            }
+//        }
+//    }
 
     /**
      * Returns the number of vertices in this edge-weighted digraph.
