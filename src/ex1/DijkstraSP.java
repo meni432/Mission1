@@ -107,11 +107,6 @@ public class DijkstraSP {
         // check optimality conditions
         assert check(G, s);
     }
-    
-<<<<<<< Updated upstream
-=======
-    
->>>>>>> Stashed changes
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {

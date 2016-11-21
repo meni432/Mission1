@@ -79,15 +79,12 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-<<<<<<< Updated upstream
-        String pathToGraphFile = "G-path.txt";
-        String pathToQueryFile = "test2.txt";
-        String pathToAnsFile = "ans2.txt";
-=======
+
         String pathToGraphFile = "G0.txt";
         String pathToQueryFile = "test1.txt";
         String pathToAnsFile = "ans0.txt";
->>>>>>> Stashed changes
+
+        
 
         try {
             runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);
