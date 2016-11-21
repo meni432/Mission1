@@ -90,15 +90,14 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        String pathToGraphFile = "G0.txt";
-        String pathToQueryFile = "test1.txt";
-        String pathToAnsFile = "ans.txt";
+        String pathToGraphFile = "G-path.txt";
+        String pathToQueryFile = "test2.txt";
+        String pathToAnsFile = "ans2.txt";
 
         try {
             runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
-
     }
 }

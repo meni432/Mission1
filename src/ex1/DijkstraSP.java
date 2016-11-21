@@ -99,7 +99,7 @@ public class DijkstraSP {
         while (!pq.isEmpty()) {
             int v = pq.delMin();
             for (DirectedEdge e : G.adj(v)) {
-                if(!BlackList.contains(e.from()))
+                if(!BlackList.contains(e.from()) && !BlackList.contains(e.to())) //TODO i two side, need check
                     relax(e);
             }
         }
@@ -107,6 +107,7 @@ public class DijkstraSP {
         // check optimality conditions
         assert check(G, s);
     }
+    
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {
