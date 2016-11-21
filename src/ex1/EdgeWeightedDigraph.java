@@ -97,7 +97,6 @@ public class EdgeWeightedDigraph {
      * negative
      */
     public EdgeWeightedDigraph(In in) {
-        // TODO need to chenage it to read blacklist
         this(in.readInt());
         int E = in.readInt();
         if (E < 0) {
