@@ -34,22 +34,9 @@ public class Graph {
         return ewd;
     }
 
-    public static double[] getInfo(EdgeWeightedDigraph G) {
-        StringBuilder builder = new StringBuilder();
-        double[] eccentricity = new double[G.V()];
-        for (int i = 0; i < G.V(); i++) {
-            DijkstraSP dijkstraSP = new DijkstraSP(G, i);
-            eccentricity[i] = dijkstraSP.getEccentricity();
-        }
-        List eccentricityList = Arrays.asList(eccentricity);
-        double radius = EX1.min(eccentricity);
-        double diameter = EX1.max(eccentricity);
-
-        return new double[]{radius, diameter};
-    }
-
     public static void runAlgorithm(String pathToGraphFile, String pathToQueryFile, String pathToAnsFile) throws FileNotFoundException {
         EdgeWeightedDigraph G = buildGraphFromFile(pathToGraphFile);
+        Graph_algo graph_algo = new Graph_algo(G);
 
         File queryFile, ansFile;
         queryFile = new File(pathToQueryFile);
@@ -75,8 +62,9 @@ public class Graph {
                 DijkstraSP dijkstraSP = new DijkstraSP(G, from, blackList);
                 ansOut.printf("%d %d %d %s %f\n", from, to, numberOfBlackList, buildBlackListArgsString(blackList), dijkstraSP.distTo(to));
             } else if (queryIn.readString().equalsIgnoreCase(INFO_QUERY)) {
-                double[] info = getInfo(G);
-                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ",  Radius:" + info[0] + ",  Diameter:" + info[1]);
+                double[] info = graph_algo.getInfo();
+                String tie = G.checkTriangleInequality() ? "TIE" : "!TIE";
+                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + "  Radius:" + info[0] + ",  Diameter:" + info[1]);
             }
         }
     }
@@ -90,18 +78,20 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-//        String pathToGraphFile = "G-path.txt";
-//        String pathToQueryFile = "test2.txt";
-//        String pathToAnsFile = "ans2.txt";
+        String pathToGraphFile = "test_Ex1.txt";
+        String pathToQueryFile = "test1_Ex1_run.txt";
+        String pathToAnsFile = "ansbbm.txt";
 
-        String pathToGraphFile = "testFiles\\Gstar.txt";
-        String pathToQueryFile = "testFiles\\starTest.txt";
-        String pathToAnsFile = "testFiles\\starAns.txt";
-
+//        String pathToGraphFile = "testFiles\\Gstar.txt";
+//        String pathToQueryFile = "testFiles\\starTest.txt";
+//        String pathToAnsFile = "testFiles\\starAns.txt";
+        long start = System.currentTimeMillis();
         try {
             runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
+
+        System.out.println("total time: " + (System.currentTimeMillis() - start));
     }
 }

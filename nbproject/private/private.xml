@@ -4,14 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/Graph.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/IndexMinPQ.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/EX1.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/Out.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/tests/GraphGenerator.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/tests/Graph.java</file>
+            <file>file:/home/meni/NetBeansProjects/EX1/src/tests/MinPQ.java</file>
+            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/EdgeWeightedDigraph.java</file>
+            <file>file:/home/meni/NetBeansProjects/EX1/test/tests.java</file>
+            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/Graph_algo.java</file>
             <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/DijkstraSP.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/DirectedEdge.java</file>
-            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/StdIn.java</file>
+            <file>file:/home/meni/NetBeansProjects/EX1/src/ex1/DirectedEdgeHash.java</file>
         </group>
     </open-files>
 </project-private>
