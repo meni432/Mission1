@@ -34,23 +34,11 @@ public class Graph {
         return ewd;
     }
 
-    public static double[] getInfo(EdgeWeightedDigraph G) {
-        StringBuilder builder = new StringBuilder();
-        double[] eccentricity = new double[G.V()];
-        for (int i = 0; i < G.V(); i++) {
-            DijkstraSP dijkstraSP = new DijkstraSP(G, i);
-            eccentricity[i] = dijkstraSP.getEccentricity();
-        }
-        List eccentricityList = Arrays.asList(eccentricity);
-        double radius = EX1.min(eccentricity);
-        double diameter = EX1.max(eccentricity);
-
-        return new double[]{radius, diameter};
-    }
 
     public static void runAlgorithm(String pathToGraphFile, String pathToQueryFile, String pathToAnsFile) throws FileNotFoundException {
         EdgeWeightedDigraph G = buildGraphFromFile(pathToGraphFile);
-
+        Graph_algo graph_algo = new Graph_algo(G);
+        
         File queryFile, ansFile;
         queryFile = new File(pathToQueryFile);
         ansFile = new File(pathToAnsFile);
@@ -62,7 +50,6 @@ public class Graph {
         int numberOfQuery = queryIn.readInt();
 
         for (int i = 0; i < numberOfQuery; i++) {
-            // if the next query is from->to query
             if (queryIn.hasNextInt()) {
                 int from = queryIn.readInt();
                 int to = queryIn.readInt();
@@ -71,12 +58,14 @@ public class Graph {
                 for (int j = 0; j < numberOfBlackList; j++) {
                     blackList.add(queryIn.readInt());
                 }
-
-                DijkstraSP dijkstraSP = new DijkstraSP(G, from, blackList);
+                
+                DijkstraSP dijkstraSP = graph_algo.getDijkstraSP(from, blackList);
+                
                 ansOut.printf("%d %d %d %s %f\n", from, to, numberOfBlackList, buildBlackListArgsString(blackList), dijkstraSP.distTo(to));
             } else if (queryIn.readString().equalsIgnoreCase(INFO_QUERY)) {
-                double[] info = getInfo(G);
-                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ",  Radius:" + info[0] + ",  Diameter:" + info[1]);
+                double[] info = graph_algo.getInfo();
+                boolean tie = graph_algo.checkTriangleInequality();
+                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", TIE =  "+tie+" Radius:" + info[0] + ",  Diameter:" + info[1]);
             }
         }
     }
@@ -90,9 +79,15 @@ public class Graph {
     }
 
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         String pathToGraphFile = "G-path.txt";
         String pathToQueryFile = "test2.txt";
         String pathToAnsFile = "ans2.txt";
+=======
+        String pathToGraphFile = "G0.txt";
+        String pathToQueryFile = "test1.txt";
+        String pathToAnsFile = "ans0.txt";
+>>>>>>> Stashed changes
 
         try {
             runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);

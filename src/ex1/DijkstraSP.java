@@ -108,6 +108,10 @@ public class DijkstraSP {
         assert check(G, s);
     }
     
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {
@@ -123,6 +127,8 @@ public class DijkstraSP {
             }
         }
     }
+    
+    
 
     /**
      * Returns the length of a shortest path from the source vertex {@code s} to
