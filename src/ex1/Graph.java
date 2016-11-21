@@ -90,9 +90,13 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        String pathToGraphFile = "G-path.txt";
-        String pathToQueryFile = "test2.txt";
-        String pathToAnsFile = "ans2.txt";
+//        String pathToGraphFile = "G-path.txt";
+//        String pathToQueryFile = "test2.txt";
+//        String pathToAnsFile = "ans2.txt";
+
+        String pathToGraphFile = "testFiles\\Gstar.txt";
+        String pathToQueryFile = "testFiles\\starTest.txt";
+        String pathToAnsFile = "testFiles\\starAns.txt";
 
         try {
             runAlgorithm(pathToGraphFile, pathToQueryFile, pathToAnsFile);
