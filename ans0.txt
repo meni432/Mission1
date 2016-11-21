@@ -2,4 +2,4 @@
 2 3 0  4.700000
 2 3 1 4  5.160000
 3 5 2 0 1  0.300000
-Graph: |V|=6, |E|=9,  Radius:4.2,  Diameter:6.7
+Graph: |V|=6, |E|=9, TIE =  false Radius:4.2,  Diameter:6.7

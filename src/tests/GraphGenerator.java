@@ -411,7 +411,7 @@ public class GraphGenerator {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        int V = 100;
+        int V = 15;
         int E = 5;
         int V1 = V/2;
         int V2 = V - V1;

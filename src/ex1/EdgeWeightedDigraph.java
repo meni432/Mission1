@@ -44,6 +44,8 @@ public class EdgeWeightedDigraph {
     private Bag<DirectedEdge>[] adj;    // adj[v] = adjacency list for vertex v
     private int[] indegree;             // indegree[v] = indegree of vertex v
 
+    private double[][] fffMat;
+
     /**
      * Initializes an empty edge-weighted digraph with {@code V} vertices and 0
      * edges.
@@ -98,6 +100,8 @@ public class EdgeWeightedDigraph {
      */
     public EdgeWeightedDigraph(In in) {
         this(in.readInt());
+        fffMat = new double[V][V];
+        initialMatrix(fffMat);
         int E = in.readInt();
         if (E < 0) {
             throw new IllegalArgumentException("Number of edges must be nonnegative");
@@ -112,9 +116,40 @@ public class EdgeWeightedDigraph {
                 throw new IndexOutOfBoundsException("vertex " + w + " is not between 0 and " + (V - 1));
             }
             double weight = in.readDouble();
+            fffMat[v][w] = weight;
+            fffMat[w][v] = weight;
             addEdge(new DirectedEdge(v, w, weight));
             addEdge(new DirectedEdge(w, v, weight));
         }
+    }
+
+    private void initialMatrix(double[][] M) {
+        for (int i = 0; i < M.length; i++) {
+            for (int j = 0; j < M[0].length; j++) {
+                if (i != j) {
+                    M[i][j] = Double.POSITIVE_INFINITY;
+                } else {
+                    M[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    public boolean checkTriangleInequality() {
+        for (int k = 0; k < fffMat.length; k++) {
+            for (int i = 0; i < fffMat.length; i++) {
+                for (int j = 0; j < fffMat.length; j++) {
+                    if (fffMat[i][k] != Double.POSITIVE_INFINITY && fffMat[k][j] != Double.POSITIVE_INFINITY) {
+                        if (!(fffMat[i][j] >= fffMat[i][k] + fffMat[k][j]
+                                || fffMat[i][k] >= fffMat[i][j] + fffMat[j][k]
+                                || fffMat[k][j] >= fffMat[k][i] + fffMat[i][j])) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /**

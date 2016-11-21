@@ -107,7 +107,6 @@ public class DijkstraSP {
         // check optimality conditions
 //        assert check(G, s);
     }
-    
 
     // relax edge e and update pq if changed
     private void relax(DirectedEdge e) {
@@ -123,6 +122,8 @@ public class DijkstraSP {
             }
         }
     }
+    
+    
 
     /**
      * Returns the length of a shortest path from the source vertex {@code s} to
