@@ -55,7 +55,6 @@ public class DijkstraSP {
     private IndexMinPQ<Double> pq;    // priority queue of vertices
     private List<Integer> BlackList;  // BlackList[v]= Black list of vertex.   
     
-    private int eccentricity;
 
     /**
      * Computes a shortest-paths tree from the source vertex {@code s} to every
@@ -137,6 +136,9 @@ public class DijkstraSP {
         return distTo[v];
     }
     
+    /**
+     * @return Eccentricity of graph
+     */
     public double getEccentricity(){
         return EX1.max(distTo);
     }

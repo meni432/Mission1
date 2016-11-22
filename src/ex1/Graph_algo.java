@@ -1,27 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ex1;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- *
- * @author meni
+ * 
  */
 public class Graph_algo {
 
-    EdgeWeightedDigraph G;
-    DijkstraSP[] dijkstraSPs;
+    private EdgeWeightedDigraph G;
+    private DijkstraSP[] dijkstraSPs;
 
+    /**
+     * costructor of class Graph_algo
+     * @param ewd EdgeWeightedDigraph representing the graph
+     */
     public Graph_algo(EdgeWeightedDigraph ewd) {
         G = ewd;
         dijkstraSPs = new DijkstraSP[ewd.V()];
     }
 
+    /**
+     * this function is factory for DijkstraSP object without blacklist
+     * to improve the optimition, the class cache the object for Future uses
+     * @param start start vertex
+     * @return DijkstraSP object for given start
+     */
     public DijkstraSP getDijkstraSP(int start) {
         if (dijkstraSPs[start] == null) {
             dijkstraSPs[start] = new DijkstraSP(G, start);
@@ -29,10 +33,18 @@ public class Graph_algo {
         return dijkstraSPs[start];
     }
     
+    /**
+     * @param start start vertex
+     * @param BlackList list of vertex that algorithm not allow to used them
+     * @return DijkstraSP object for given start and BlackList
+     */
     public DijkstraSP getDijkstraSP(int start, List<Integer> BlackList){
         return new DijkstraSP(G, start, BlackList);
     }
 
+    /**
+     * @return double Array with two args [radius of given graph, diameter of given graph]
+     */
     public double[] getInfo() {
         StringBuilder builder = new StringBuilder();
         double[] eccentricity = new double[G.V()];
@@ -47,6 +59,9 @@ public class Graph_algo {
         return new double[]{radius, diameter};
     }
     
+    /**
+     * @return if the graph satisfy the triangle inequality
+     */
     public boolean checkTriangleInequality(){
         return G.checkTriangleInequality();
     }

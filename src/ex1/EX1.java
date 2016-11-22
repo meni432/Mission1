@@ -19,6 +19,10 @@ public class EX1 {
         
     }
     
+    /**
+     * @param A array of double numbers
+     * @return minimus value of the array
+     */
     public static double min(double[] A){
         double min = A[0];
         for (int i = 1; i < A.length; i++){
@@ -29,6 +33,10 @@ public class EX1 {
         return min;
     }
     
+    /**
+     * @param A array of double numbers
+     * @return maximum value of the array
+     */
     public static double max(double[] A){
         double max = A[0];
         for (int i = 1; i< A.length; i++){

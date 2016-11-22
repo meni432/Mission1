@@ -62,6 +62,7 @@ public class Graph {
                 DijkstraSP dijkstraSP = new DijkstraSP(G, from, blackList);
                 ansOut.printf("%d %d %d %s %f\n", from, to, numberOfBlackList, buildBlackListArgsString(blackList), dijkstraSP.distTo(to));
             } else if (queryIn.readString().equalsIgnoreCase(INFO_QUERY)) {
+                // if this is a info query
                 double[] info = graph_algo.getInfo();
                 String tie = G.checkTriangleInequality() ? "TIE" : "!TIE";
                 ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + "  Radius:" + info[0] + ",  Diameter:" + info[1]);

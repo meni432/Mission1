@@ -47,10 +47,10 @@ public class tests {
     //
     @Test
     public void starGraph() throws FileNotFoundException, IOException {
-        String grapgPath = "testFiles\\Gstar.txt";
-        String QueryPath = "testFiles\\starTest.txt";
-        String expectedPath = "testFiles\\starExpectedAns.txt";
-        String ansPath = "testFiles\\starAns.txt";
+        String grapgPath = "testFiles/Gstar.txt";
+        String QueryPath = "testFiles/starTest.txt";
+        String expectedPath = "testFiles/starExpectedAns.txt";
+        String ansPath = "testFiles/starAns.txt";
         runAlgorithm(grapgPath, QueryPath, ansPath);
 
 
