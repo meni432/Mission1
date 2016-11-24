@@ -80,7 +80,7 @@ public class Graph {
 
     public static void main(String[] args) {
         String pathToGraphFile = "test_Ex1.txt";
-        String pathToQueryFile = "test1_Ex1_run.txt";
+        String pathToQueryFile = "trie-test-1.txt";
         String pathToAnsFile = "ansbbm.txt";
 
 //        String pathToGraphFile = "testFiles\\Gstar.txt";

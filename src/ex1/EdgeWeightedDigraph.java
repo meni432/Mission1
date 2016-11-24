@@ -140,9 +140,9 @@ public class EdgeWeightedDigraph {
             for (int i = 0; i < fffMat.length; i++) {
                 for (int j = 0; j < fffMat.length; j++) {
                     if (fffMat[i][k] != Double.POSITIVE_INFINITY && fffMat[k][j] != Double.POSITIVE_INFINITY) {
-                        if (!(fffMat[i][j] >= fffMat[i][k] + fffMat[k][j]
-                                || fffMat[i][k] >= fffMat[i][j] + fffMat[j][k]
-                                || fffMat[k][j] >= fffMat[k][i] + fffMat[i][j])) {
+                        if ((fffMat[i][j] > fffMat[i][k] + fffMat[k][j]
+                                || fffMat[i][k] > fffMat[i][j] + fffMat[j][k]
+                                || fffMat[k][j] > fffMat[k][i] + fffMat[i][j])) {
                             return false;
                         }
                     }
