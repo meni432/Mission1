@@ -15,3 +15,6 @@ w=number of queries; v=number of nodes; e=number of edges.
 
 Its open source is located at the following link: http://algs4.cs.princeton.edu/44sp.
 In order to run it, go to the Graph_algo class and run your tests in its main().
+
+This Project was created by:
+Meni Samet, Tahel Citron, Moshe Chen, Sapir Cohen, Ran Zohar
