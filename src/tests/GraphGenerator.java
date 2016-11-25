@@ -411,12 +411,12 @@ public class GraphGenerator {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        int V = 15;
-        int E = 5;
+        int V = 500;
+        int E = 4;
         int V1 = V/2;
         int V2 = V - V1;
 
-        Out outfile = new Out("complete-graph-v-100.txt");
+        Out outfile = new Out("complete-graph-v-1000.txt");
         StdOut.println("complete graph");
         StdOut.println(complete(V));
         outfile.print(complete(V));

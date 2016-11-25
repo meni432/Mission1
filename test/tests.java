@@ -47,36 +47,82 @@ public class tests {
     //
     @Test
     public void starGraph() throws FileNotFoundException, IOException {
-        String grapgPath = "testFiles/Gstar.txt";
-        String QueryPath = "testFiles/starTest.txt";
-        String expectedPath = "testFiles/starExpectedAns.txt";
-        String ansPath = "testFiles/starAns.txt";
+        String grapgPath = "testFiles/Gstar/Gstar.txt";
+        String QueryPath = "testFiles/Gstar/starTest.txt";
+        String expectedPath = "testFiles/Gstar/starExpectedAns.txt";
+        String ansPath = "testFiles/Gstar/starAns.txt";
         runAlgorithm(grapgPath, QueryPath, ansPath);
-
 
         boolean isEqual = isEqualFiles(expectedPath, ansPath);
         assert isEqual;
 
     }
 
+    @Test
+    public void fullGraph() throws FileNotFoundException, IOException {
+        String grapgPath = "testFiles/FullGraph/FullGraph.txt";
+        String QueryPath = "testFiles/FullGraph/FullGraphTest.txt";
+        String expectedPath = "testFiles/FullGraph/FullGraphExpectedAns.txt";
+        String ansPath = "testFiles/FullGraph/FullGraphAns.txt";
+        runAlgorithm(grapgPath, QueryPath, ansPath);
+
+        boolean isEqual = isEqualFiles(expectedPath, ansPath);
+        assert isEqual;
+    }
+
+    @Test
+    public void whellGraph() throws FileNotFoundException, IOException {
+        String grapgPath = "testFiles/WhellGraph/graph.txt";
+        String QueryPath = "testFiles/WhellGraph/graphTest.txt";
+        String expectedPath = "testFiles/WhellGraph/expectedAns.txt";
+        String ansPath = "testFiles/WhellGraph/ans.txt";
+        runAlgorithm(grapgPath, QueryPath, ansPath);
+
+        boolean isEqual = isEqualFiles(expectedPath, ansPath);
+        assert isEqual;
+    }
+
+    @Test
+    public void cycleGraph() throws FileNotFoundException, IOException {
+        String grapgPath = "testFiles/CycleGraph/graph.txt";
+        String QueryPath = "testFiles/CycleGraph/graphTest.txt";
+        String expectedPath = "testFiles/CycleGraph/expectedAns.txt";
+        String ansPath = "testFiles/CycleGraph/ans.txt";
+        runAlgorithm(grapgPath, QueryPath, ansPath);
+
+        boolean isEqual = isEqualFiles(expectedPath, ansPath);
+        assert isEqual;
+    }
+    
+        @Test
+    public void bigGraph() throws FileNotFoundException, IOException {
+        String grapgPath = "testFiles/BigGraph/graph.txt";
+        String QueryPath = "testFiles/BigGraph/graphTest.txt";
+        String expectedPath = "testFiles/BigGraph/expectedAns.txt";
+        String ansPath = "testFiles/BigGraph/ans.txt";
+        runAlgorithm(grapgPath, QueryPath, ansPath);
+
+        boolean isEqual = isEqualFiles(expectedPath, ansPath);
+        assert isEqual;
+    }
+
     //check if 2 files are equals
     private boolean isEqualFiles(String expectedPath, String ansPath) throws IOException {
-            File file = new File(expectedPath);
-    File secondFile = new File(ansPath);
+        File file = new File(expectedPath);
+        File secondFile = new File(ansPath);
 
-    // Bytes diff
-    byte[] b1 = Files.readAllBytes(file.toPath());
-    byte[] b2 = Files.readAllBytes(secondFile.toPath());
+        // Bytes diff
+        byte[] b1 = Files.readAllBytes(file.toPath());
+        byte[] b2 = Files.readAllBytes(secondFile.toPath());
 
-    boolean equals = Arrays.equals(b1, b2);
+        boolean equals = Arrays.equals(b1, b2);
 
 //    System.out.println("the same? " + equals);
+        // List Diff
+        List<String> c1 = Files.readAllLines(file.toPath());
+        List<String> c2 = Files.readAllLines(secondFile.toPath());
 
-    // List Diff
-    List<String> c1 = Files.readAllLines(file.toPath());
-    List<String> c2 = Files.readAllLines(secondFile.toPath());
-
-    return c1.containsAll(c2);
+        return c1.containsAll(c2);
 //    System.out.println("the same? " + containsAll);   
     }
 }

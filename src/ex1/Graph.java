@@ -65,7 +65,7 @@ public class Graph {
                 // if this is a info query
                 double[] info = graph_algo.getInfo();
                 String tie = G.checkTriangleInequality() ? "TIE" : "!TIE";
-                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + "  Radius:" + info[0] + ",  Diameter:" + info[1]);
+                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + ",  Radius:" + info[0] + ",  Diameter:" + info[1]);
             }
         }
     }
@@ -79,9 +79,9 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        String pathToGraphFile = "test_Ex1.txt";
-        String pathToQueryFile = "trie-test-1.txt";
-        String pathToAnsFile = "ansbbm.txt";
+        String pathToGraphFile = "input-G.txt";
+        String pathToQueryFile = "test-input-G.txt";
+        String pathToAnsFile = "ans-input-g-t.txt";
 
 //        String pathToGraphFile = "testFiles\\Gstar.txt";
 //        String pathToQueryFile = "testFiles\\starTest.txt";

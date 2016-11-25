@@ -227,6 +227,7 @@ public class Graph {
         for (int v = 0; v < V; v++) {
             for (int w : adj[v]) {
                 if (pairSet.checkAndAdd(new Pair(v, w))) {
+                    double r = Math.random();
                     s.append(v + " " + w + " 1").append(NEWLINE);
                     numberOfEdges++;
                 }

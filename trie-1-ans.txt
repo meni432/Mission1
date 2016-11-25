@@ -1,0 +1,1 @@
+Graph: |V|=3, |E|=3, !TIE  Radius:3.0,  Diameter:4.0
