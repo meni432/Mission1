@@ -106,6 +106,18 @@ public class tests {
         assert isEqual;
     }
 
+    @Test
+    public void bbmBigGraph() throws FileNotFoundException, IOException {
+        String grapgPath = "testFiles/BBMBigGraph/graph.txt";
+        String QueryPath = "testFiles/BBMBigGraph/graphTest.txt";
+        String expectedPath = "testFiles/BBMBigGraph/expectedAns.txt";
+        String ansPath = "testFiles/BBMBigGraph/ans.txt";
+        runAlgorithm(grapgPath, QueryPath, ansPath);
+
+        boolean isEqual = isEqualFiles(expectedPath, ansPath);
+        assert isEqual;
+    }
+
     //check if 2 files are equals
     private boolean isEqualFiles(String expectedPath, String ansPath) throws IOException {
         File file = new File(expectedPath);
@@ -120,12 +132,11 @@ public class tests {
         // List Diff
         List<String> c1 = Files.readAllLines(file.toPath());
         List<String> c2 = Files.readAllLines(secondFile.toPath());
-        
+
         // remove the last line (time line...)
-        c1.remove(c1.size()-1);
-        c2.remove(c2.size()-1);
-        
-        
+        c1.remove(c1.size() - 1);
+        c2.remove(c2.size() - 1);
+
         return c1.containsAll(c2);
     }
 }

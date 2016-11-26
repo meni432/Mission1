@@ -67,26 +67,6 @@ public class EdgeWeightedDigraph {
     }
 
     /**
-     * Initializes a random edge-weighted digraph with {@code V} vertices and
-     * <em>E</em> edges.
-     *
-     * @param V the number of vertices
-     * @param E the number of edges
-     * @throws IllegalArgumentException if {@code V < 0}
-     * @throws IllegalArgumentException if {@code E < 0}
-     */
-//    public EdgeWeightedDigraph(int V, int E) {
-//        this(V);
-//        if (E < 0) throw new IllegalArgumentException("Number of edges in a Digraph must be nonnegative");
-//        for (int i = 0; i < E; i++) {
-//            int v = StdRandom.uniform(V);
-//            int w = StdRandom.uniform(V);
-//            double weight = 0.01 * StdRandom.uniform(100);
-//            DirectedEdge e = new DirectedEdge(v, w, weight);
-//            addEdge(e);
-//        }
-//    }
-    /**
      * Initializes an edge-weighted digraph from the specified input stream. The
      * format is the number of vertices <em>V</em>, followed by the number of
      * edges <em>E</em>, followed by <em>E</em> pairs of vertices and edge
@@ -123,6 +103,11 @@ public class EdgeWeightedDigraph {
         }
     }
 
+    /**
+     * initial flowyd-warshel matrix
+     * fill the main diagonal in zeros, all others edges in inifinity
+     * @param M matrix to initialize
+     */
     private void initialMatrix(double[][] M) {
         for (int i = 0; i < M.length; i++) {
             for (int j = 0; j < M[0].length; j++) {
@@ -135,6 +120,10 @@ public class EdgeWeightedDigraph {
         }
     }
 
+    /**
+     * check if the graph satisfied the triangle inequality
+     * @return true if satisfied, else satisfied
+     */
     public boolean checkTriangleInequality() {
         for (int k = 0; k < fffMat.length; k++) {
             for (int i = 0; i < fffMat.length; i++) {
@@ -152,27 +141,6 @@ public class EdgeWeightedDigraph {
         return true;
     }
 
-    /**
-     * Initializes a new edge-weighted digraph that is a deep copy of {@code G}.
-     *
-     * @param G the edge-weighted digraph to copy
-     */
-//    public EdgeWeightedDigraph(EdgeWeightedDigraph G) {
-//        this(G.V());
-//        this.E = G.E();
-//        for (int v = 0; v < G.V(); v++)
-//            this.indegree[v] = G.indegree(v);
-//        for (int v = 0; v < G.V(); v++) {
-//            // reverse so that adjacency list is in same order as original
-//            Stack<DirectedEdge> reverse = new Stack<DirectedEdge>();
-//            for (DirectedEdge e : G.adj[v]) {
-//                reverse.push(e);
-//            }
-//            for (DirectedEdge e : reverse) {
-//                adj[v].add(e);
-//            }
-//        }
-//    }
     /**
      * Returns the number of vertices in this edge-weighted digraph.
      *
