@@ -35,6 +35,7 @@ public class Graph {
     }
 
     public static void runAlgorithm(String pathToGraphFile, String pathToQueryFile, String pathToAnsFile) throws FileNotFoundException {
+        long start = System.currentTimeMillis();
         EdgeWeightedDigraph G = buildGraphFromFile(pathToGraphFile);
         Graph_algo graph_algo = new Graph_algo(G);
 
@@ -65,9 +66,11 @@ public class Graph {
                 // if this is a info query
                 double[] info = graph_algo.getInfo();
                 String tie = G.checkTriangleInequality() ? "TIE" : "!TIE";
-                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + ",  Radius:" + info[0] + ",  Diameter:" + info[1]);
+                ansOut.printf("Graph: |V|=" + G.V() + ", |E|=" + G.E() / 2 + ", " + tie + ",  Radius:" + info[0] + ",  Diameter:" + info[1]+"\n");
             }
         }
+        
+        ansOut.print("total time: " + (System.currentTimeMillis() - start) + "\n");
     }
 
     private static String buildBlackListArgsString(List<Integer> blackList) {

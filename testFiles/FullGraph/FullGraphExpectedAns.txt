@@ -2,3 +2,4 @@
 1 4 0  3.000000
 3 4 0  1.000000
 Graph: |V|=5, |E|=10, TIE,  Radius:3.0,  Diameter:3.0
+total time: 16

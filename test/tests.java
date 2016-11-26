@@ -93,8 +93,8 @@ public class tests {
         boolean isEqual = isEqualFiles(expectedPath, ansPath);
         assert isEqual;
     }
-    
-        @Test
+
+    @Test
     public void bigGraph() throws FileNotFoundException, IOException {
         String grapgPath = "testFiles/BigGraph/graph.txt";
         String QueryPath = "testFiles/BigGraph/graphTest.txt";
@@ -117,12 +117,15 @@ public class tests {
 
         boolean equals = Arrays.equals(b1, b2);
 
-//    System.out.println("the same? " + equals);
         // List Diff
         List<String> c1 = Files.readAllLines(file.toPath());
         List<String> c2 = Files.readAllLines(secondFile.toPath());
-
+        
+        // remove the last line (time line...)
+        c1.remove(c1.size()-1);
+        c2.remove(c2.size()-1);
+        
+        
         return c1.containsAll(c2);
-//    System.out.println("the same? " + containsAll);   
     }
 }
