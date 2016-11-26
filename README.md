@@ -7,7 +7,6 @@ it can check if the graph upholds the triangle inequality and it able to return 
 
 For an explanation on the Dijkstra algorithm, please refer to: Https://www.youtube.com/watch?v=gdmfOwyQlcI
 
-We used an open source located at the following link: Http://www.cswiki.org/wiki/index.php?title=Dijkstra
 
 Complexity - O(wve*log|V|)
 
