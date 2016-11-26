@@ -4,4 +4,4 @@
 1 4 0  2.000000
 1 4 1 0  3.000000
 Graph: |V|=6, |E|=10, !TIE,  Radius:1.0,  Diameter:2.0
-total time: 4
+total time: 5

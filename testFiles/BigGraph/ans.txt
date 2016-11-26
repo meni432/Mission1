@@ -4,4 +4,4 @@
 38 129 0  1.000000
 42 129 0  1.000000
 Graph: |V|=500, |E|=124634, !TIE,  Radius:1.0,  Diameter:2.0
-total time: 2249
+total time: 2283
