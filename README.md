@@ -7,10 +7,9 @@ it can check if the graph upholds the triangle inequality and it able to return 
 
 For an explanation on the Dijkstra algorithm, please refer to: Https://www.youtube.com/watch?v=gdmfOwyQlcI
 
-
-Complexity - O(wve*log|V|)
-
-w=number of queries; v=number of nodes; e=number of edges.
+Dijkstra Complexity - O(|E|+|V|log|V|)
+Floyd–Warshall Complexity O(n^3) (for triangle inequality)
+v=number of nodes; e=number of edges.
 
 Its open source is located at the following link: http://algs4.cs.princeton.edu/44sp.
 In order to run it, go to the Graph_algo class and run your tests in its main().
